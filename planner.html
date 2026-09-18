@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Irrigation Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h2 data-i18n="smartIrrigation">
+        🌱 Smart Irrigation
+    </h2>
+
+
+    <div class="nav-links">
+
+        <a href="index.html" data-i18n="home">
+            Home
+        </a>
+
+        <a href="planner.html" data-i18n="planner">
+            Planner
+        </a>
+
+        <a href="crops.html" data-i18n="crops">
+            Crops
+        </a>
+
+        <a href="tips.html" data-i18n="tips">
+            Tips
+        </a>
+
+        <a href="history.html" data-i18n="history">
+            History
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="form-box">
+
+
+    <h1 data-i18n="createPlan">
+        💧 Create Irrigation Plan
+    </h1>
+
+
+    <p
+        class="form-subtitle"
+        data-i18n="plannerSubtitle">
+
+        Select crop, growth stage,
+        soil and weather conditions
+
+    </p>
+
+
+
+    <!-- CROP -->
+
+    <label data-i18n="cropType">
+        🌾 Crop Type
+    </label>
+
+
+    <select id="crop">
+
+        <option value=""
+                data-i18n="selectCrop">
+
+            Select Crop
+
+        </option>
+
+        <option value="rice"
+                data-i18n="rice">
+            Rice
+        </option>
+
+        <option value="tomato"
+                data-i18n="tomato">
+            Tomato
+        </option>
+
+        <option value="cotton"
+                data-i18n="cotton">
+            Cotton
+        </option>
+
+        <option value="groundnut"
+                data-i18n="groundnut">
+            Groundnut
+        </option>
+
+        <option value="maize"
+                data-i18n="maize">
+            Maize
+        </option>
+
+    </select>
+
+
+
+    <!-- STAGE -->
+
+    <label data-i18n="growthStage">
+        🌱 Growth Stage
+    </label>
+
+
+    <select id="stage">
+
+        <option value=""
+                data-i18n="selectStage">
+
+            Select Stage
+
+        </option>
+
+        <option value="seedling"
+                data-i18n="seedling">
+            Seedling
+        </option>
+
+        <option value="vegetative"
+                data-i18n="vegetative">
+            Vegetative
+        </option>
+
+        <option value="flowering"
+                data-i18n="flowering">
+            Flowering
+        </option>
+
+        <option value="maturity"
+                data-i18n="maturity">
+            Maturity
+        </option>
+
+    </select>
+
+
+
+    <!-- SOIL -->
+
+    <label data-i18n="soilCondition">
+        🪴 Soil Condition
+    </label>
+
+
+    <select id="soil">
+
+        <option value=""
+                data-i18n="selectSoil">
+
+            Select Soil
+
+        </option>
+
+        <option value="sandy"
+                data-i18n="sandy">
+            Sandy
+        </option>
+
+        <option value="loamy"
+                data-i18n="loamy">
+            Loamy
+        </option>
+
+        <option value="clay"
+                data-i18n="clay">
+            Clay
+        </option>
+
+    </select>
+
+
+
+    <!-- WEATHER -->
+
+    <label data-i18n="weatherCondition">
+        🌦️ Weather Condition
+    </label>
+
+
+    <select id="weather">
+
+        <option value=""
+                data-i18n="selectWeather">
+
+            Select Weather
+
+        </option>
+
+        <option value="sunny"
+                data-i18n="sunny">
+            Sunny
+        </option>
+
+        <option value="cloudy"
+                data-i18n="cloudy">
+            Cloudy
+        </option>
+
+        <option value="rainy"
+                data-i18n="rainy">
+            Rainy
+        </option>
+
+        <option value="hot"
+                data-i18n="hot">
+            Hot
+        </option>
+
+    </select>
+
+
+
+    <button
+        type="button"
+        id="generateBtn"
+        data-i18n="generatePlan">
+
+        Generate Plan 💧
+
+    </button>
+
+
+</div>
+
+
+<script src="language.js"></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

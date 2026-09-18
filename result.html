@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Irrigation Result</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h2 data-i18n="smartIrrigation">
+        🌱 Smart Irrigation
+    </h2>
+
+
+    <div class="nav-links">
+
+        <a href="index.html" data-i18n="home">
+            Home
+        </a>
+
+        <a href="planner.html" data-i18n="planner">
+            Planner
+        </a>
+
+        <a href="crops.html" data-i18n="crops">
+            Crops
+        </a>
+
+        <a href="tips.html" data-i18n="tips">
+            Tips
+        </a>
+
+        <a href="history.html" data-i18n="history">
+            History
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="result-container">
+
+
+    <h1 data-i18n="resultTitle">
+        💧 Irrigation Recommendation
+    </h1>
+
+
+    <p
+        class="result-subtitle"
+        data-i18n="resultSubtitle">
+
+        Your personalized irrigation plan
+
+    </p>
+
+
+
+    <div class="result-card">
+
+
+        <div class="result-item">
+
+            <span data-i18n="crop">
+                🌾 Crop
+            </span>
+
+            <strong id="resultCrop"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="stage">
+                🌱 Growth Stage
+            </span>
+
+            <strong id="resultStage"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="soil">
+                🪴 Soil Condition
+            </span>
+
+            <strong id="resultSoil"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="weather">
+                🌦️ Weather Condition
+            </span>
+
+            <strong id="resultWeather"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="water">
+                💧 Water Requirement
+            </span>
+
+            <strong id="resultWater"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="frequency">
+                ⏱️ Frequency
+            </span>
+
+            <strong id="resultFrequency"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="duration">
+                ⏳ Duration
+            </span>
+
+            <strong id="resultDuration"></strong>
+
+        </div>
+
+
+        <div class="result-item">
+
+            <span data-i18n="bestTime">
+                🕐 Best Time
+            </span>
+
+            <strong id="resultBestTime"></strong>
+
+        </div>
+
+
+        <div class="recommendation-box">
+
+            <h3 data-i18n="recommendation">
+                💡 Recommendation
+            </h3>
+
+            <p id="resultReason"></p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="result-buttons">
+
+
+        <a href="planner.html">
+
+            <button data-i18n="createAnother">
+                Create Another Plan 🌱
+            </button>
+
+        </a>
+
+
+        <a href="history.html">
+
+            <button data-i18n="viewSaved">
+                View Saved Plans 📋
+            </button>
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="language.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        document.getElementById(
+            "resultCrop"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("crop")
+            );
+
+
+        document.getElementById(
+            "resultStage"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("stage")
+            );
+
+
+        document.getElementById(
+            "resultSoil"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("soil")
+            );
+
+
+        document.getElementById(
+            "resultWeather"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("weather")
+            );
+
+
+        document.getElementById(
+            "resultWater"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("water")
+            );
+
+
+        document.getElementById(
+            "resultFrequency"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("frequency")
+            );
+
+
+        document.getElementById(
+            "resultDuration"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("duration")
+            );
+
+
+        document.getElementById(
+            "resultBestTime"
+        ).textContent =
+            translateValue(
+                localStorage.getItem("bestTime")
+            );
+
+
+        // Recommendation is stored as
+        // structured English text.
+        // Rebuild it according to current language.
+
+        let reason = "";
+
+
+        const stage =
+            localStorage.getItem("stage");
+
+
+        const soil =
+            localStorage.getItem("soil");
+
+
+        const weather =
+            localStorage.getItem("weather");
+
+
+        if (stage === "seedling") {
+
+            reason += t("recSeedling");
+
+        }
+
+        else if (stage === "vegetative") {
+
+            reason += t("recVegetative");
+
+        }
+
+        else if (stage === "flowering") {
+
+            reason += t("recFlowering");
+
+        }
+
+        else if (stage === "maturity") {
+
+            reason += t("recMaturity");
+
+        }
+
+
+        if (soil === "sandy") {
+
+            reason += " " + t("recSandy");
+
+        }
+
+        else if (soil === "clay") {
+
+            reason += " " + t("recClay");
+
+        }
+
+        else if (soil === "loamy") {
+
+            reason += " " + t("recLoamy");
+
+        }
+
+
+        if (weather === "rainy") {
+
+            reason += " " + t("recRainy");
+
+        }
+
+        else if (weather === "cloudy") {
+
+            reason += " " + t("recCloudy");
+
+        }
+
+        else if (weather === "sunny") {
+
+            reason += " " + t("recSunny");
+
+        }
+
+        else if (weather === "hot") {
+
+            reason += " " + t("recHot");
+
+        }
+
+
+        document.getElementById(
+            "resultReason"
+        ).textContent = reason;
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
