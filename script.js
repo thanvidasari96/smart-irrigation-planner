@@ -2,7 +2,6 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-
         const button =
             document.getElementById(
                 "generateBtn"
@@ -13,6 +12,10 @@ document.addEventListener(
             "click",
             async function () {
 
+
+                // =====================================
+                // GET USER INPUTS
+                // =====================================
 
                 const crop =
                     document.getElementById(
@@ -42,10 +45,9 @@ document.addEventListener(
                     getLanguage();
 
 
-
-                // ---------------------------------------
+                // =====================================
                 // VALIDATION
-                // ---------------------------------------
+                // =====================================
 
                 if (
                     crop === "" ||
@@ -63,9 +65,7 @@ document.addEventListener(
                 }
 
 
-
                 try {
-
 
                     button.disabled = true;
 
@@ -74,10 +74,9 @@ document.addEventListener(
                         t("generatingPlan");
 
 
-
-                    // -----------------------------------
+                    // =================================
                     // SEND TO BACKEND
-                    // -----------------------------------
+                    // =================================
 
                     const response =
                         await fetch(
@@ -87,8 +86,10 @@ document.addEventListener(
                                 method: "POST",
 
                                 headers: {
+
                                     "Content-Type":
                                         "application/json"
+
                                 },
 
                                 body:
@@ -115,11 +116,13 @@ document.addEventListener(
                         );
 
 
-
                     const data =
                         await response.json();
 
 
+                    // =================================
+                    // CHECK RESPONSE
+                    // =================================
 
                     if (!data.success) {
 
@@ -133,15 +136,13 @@ document.addEventListener(
                     }
 
 
-
                     const plan =
                         data.plan;
 
 
-
-                    // -----------------------------------
-                    // SAVE RESULT
-                    // -----------------------------------
+                    // =================================
+                    // SAVE PLAN DATA
+                    // =================================
 
                     localStorage.setItem(
                         "water",
@@ -203,9 +204,31 @@ document.addEventListener(
                     );
 
 
-                    // -----------------------------------
-                    // GO TO RESULT
-                    // -----------------------------------
+                    // =================================
+                    // SAVE LANGUAGE
+                    // =================================
+
+                    localStorage.setItem(
+                        "planLanguage",
+                        plan.language
+                    );
+
+
+                    // =================================
+                    // SAVE PERSONALIZED TIPS
+                    // =================================
+
+                    localStorage.setItem(
+                        "tips",
+                        JSON.stringify(
+                            plan.tips || []
+                        )
+                    );
+
+
+                    // =================================
+                    // OPEN RESULT PAGE
+                    // =================================
 
                     window.location.href =
                         "result.html";
@@ -236,6 +259,7 @@ document.addEventListener(
                 }
 
             }
+
         );
 
     }

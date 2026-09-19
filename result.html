@@ -11,7 +11,74 @@
 
     <title>Irrigation Result</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        .personalized-tips {
+
+            margin-top: 25px;
+
+            padding: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1f8e9,
+                    #e8f5e9
+                );
+
+            border-radius: 18px;
+
+            border: 1px solid
+                rgba(76, 175, 80, 0.18);
+
+            text-align: left;
+
+        }
+
+
+        .personalized-tips h3 {
+
+            margin-top: 0;
+
+            margin-bottom: 15px;
+
+            color: #2e7d32;
+
+        }
+
+
+        .personalized-tips ul {
+
+            margin: 0;
+
+            padding-left: 25px;
+
+        }
+
+
+        .personalized-tips li {
+
+            margin-bottom: 10px;
+
+            line-height: 1.6;
+
+            color: #355b3a;
+
+        }
+
+
+        .personalized-tips li:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+    </style>
 
 </head>
 
@@ -19,46 +86,91 @@
 <body>
 
 
-<nav>
+<!-- =========================================
+     NAVIGATION
+     ========================================= -->
 
-    <h2 data-i18n="smartIrrigation">
-        🌱 Smart Irrigation
-    </h2>
+<nav class="main-nav">
+
+
+    <a
+        href="index.html"
+        class="brand">
+
+
+        <img
+            src="logo.png"
+            alt="Smart Irrigation Planner">
+
+
+    </a>
 
 
     <div class="nav-links">
 
-        <a href="index.html" data-i18n="home">
+
+        <a
+            href="index.html"
+            data-i18n="home">
+
             Home
+
         </a>
 
-        <a href="planner.html" data-i18n="planner">
+
+        <a
+            href="planner.html"
+            data-i18n="planner">
+
             Planner
+
         </a>
 
-        <a href="crops.html" data-i18n="crops">
+
+        <a
+            href="crops.html"
+            data-i18n="crops">
+
             Crops
+
         </a>
 
-        <a href="tips.html" data-i18n="tips">
+
+        <a
+            href="tips.html"
+            data-i18n="tips">
+
             Tips
+
         </a>
 
-        <a href="history.html" data-i18n="history">
+
+        <a
+            href="history.html"
+            data-i18n="history">
+
             History
+
         </a>
+
 
     </div>
+
 
 </nav>
 
 
+<!-- =========================================
+     RESULT
+     ========================================= -->
 
 <div class="result-container">
 
 
     <h1 data-i18n="resultTitle">
+
         💧 Irrigation Recommendation
+
     </h1>
 
 
@@ -71,105 +183,181 @@
     </p>
 
 
-
     <div class="result-card">
 
+
+        <!-- CROP -->
 
         <div class="result-item">
 
             <span data-i18n="crop">
+
                 🌾 Crop
+
             </span>
+
 
             <strong id="resultCrop"></strong>
 
         </div>
 
 
+        <!-- GROWTH STAGE -->
+
         <div class="result-item">
 
             <span data-i18n="stage">
+
                 🌱 Growth Stage
+
             </span>
+
 
             <strong id="resultStage"></strong>
 
         </div>
 
 
+        <!-- SOIL -->
+
         <div class="result-item">
 
             <span data-i18n="soil">
+
                 🪴 Soil Condition
+
             </span>
+
 
             <strong id="resultSoil"></strong>
 
         </div>
 
 
+        <!-- WEATHER -->
+
         <div class="result-item">
 
             <span data-i18n="weather">
+
                 🌦️ Weather Condition
+
             </span>
+
 
             <strong id="resultWeather"></strong>
 
         </div>
 
 
+        <!-- WATER -->
+
         <div class="result-item">
 
             <span data-i18n="water">
+
                 💧 Water Requirement
+
             </span>
+
 
             <strong id="resultWater"></strong>
 
         </div>
 
 
+        <!-- FREQUENCY -->
+
         <div class="result-item">
 
             <span data-i18n="frequency">
+
                 ⏱️ Frequency
+
             </span>
+
 
             <strong id="resultFrequency"></strong>
 
         </div>
 
 
+        <!-- DURATION -->
+
         <div class="result-item">
 
             <span data-i18n="duration">
+
                 ⏳ Duration
+
             </span>
+
 
             <strong id="resultDuration"></strong>
 
         </div>
 
 
+        <!-- BEST TIME -->
+
         <div class="result-item">
 
             <span data-i18n="bestTime">
+
                 🕐 Best Time
+
             </span>
+
 
             <strong id="resultBestTime"></strong>
 
         </div>
 
 
+        <!-- RECOMMENDATION -->
+
         <div class="recommendation-box">
 
+
             <h3 data-i18n="recommendation">
+
                 💡 Recommendation
+
             </h3>
 
+
             <p id="resultReason"></p>
+
+
+        </div>
+
+
+        <!-- =========================================
+             PERSONALIZED TIPS
+             ========================================= -->
+
+        <div class="personalized-tips">
+
+
+            <h3 id="tipsTitle">
+
+                🌱 Tips for Your Selected Conditions
+
+            </h3>
+
+
+            <ul id="personalizedTips">
+
+
+                <li>
+
+                    Loading personalized tips...
+
+                </li>
+
+
+            </ul>
+
 
         </div>
 
@@ -177,24 +365,35 @@
     </div>
 
 
+    <!-- =========================================
+         BUTTONS
+         ========================================= -->
 
     <div class="result-buttons">
 
 
         <a href="planner.html">
 
+
             <button data-i18n="createAnother">
+
                 Create Another Plan 🌱
+
             </button>
+
 
         </a>
 
 
         <a href="history.html">
 
+
             <button data-i18n="viewSaved">
+
                 View Saved Plans 📋
+
             </button>
+
 
         </a>
 
@@ -205,6 +404,9 @@
 </div>
 
 
+<!-- =========================================
+     LANGUAGE SYSTEM
+     ========================================= -->
 
 <script src="language.js"></script>
 
@@ -215,6 +417,22 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+
+        // =========================================
+        // GET SELECTED LANGUAGE
+        // =========================================
+
+        const currentLanguage =
+            localStorage.getItem(
+                "planLanguage"
+            ) ||
+            getLanguage() ||
+            "en";
+
+
+        // =========================================
+        // DISPLAY BASIC RESULT
+        // =========================================
 
         document.getElementById(
             "resultCrop"
@@ -280,9 +498,9 @@ document.addEventListener(
             );
 
 
-        // Recommendation is stored as
-        // structured English text.
-        // Rebuild it according to current language.
+        // =========================================
+        // BUILD RECOMMENDATION
+        // =========================================
 
         let reason = "";
 
@@ -301,78 +519,257 @@ document.addEventListener(
 
         if (stage === "seedling") {
 
-            reason += t("recSeedling");
+            reason +=
+                t("recSeedling");
 
         }
 
         else if (stage === "vegetative") {
 
-            reason += t("recVegetative");
+            reason +=
+                t("recVegetative");
 
         }
 
         else if (stage === "flowering") {
 
-            reason += t("recFlowering");
+            reason +=
+                t("recFlowering");
 
         }
 
         else if (stage === "maturity") {
 
-            reason += t("recMaturity");
+            reason +=
+                t("recMaturity");
 
         }
 
 
         if (soil === "sandy") {
 
-            reason += " " + t("recSandy");
+            reason +=
+                " " +
+                t("recSandy");
 
         }
 
         else if (soil === "clay") {
 
-            reason += " " + t("recClay");
+            reason +=
+                " " +
+                t("recClay");
 
         }
 
         else if (soil === "loamy") {
 
-            reason += " " + t("recLoamy");
+            reason +=
+                " " +
+                t("recLoamy");
 
         }
 
 
         if (weather === "rainy") {
 
-            reason += " " + t("recRainy");
+            reason +=
+                " " +
+                t("recRainy");
 
         }
 
         else if (weather === "cloudy") {
 
-            reason += " " + t("recCloudy");
+            reason +=
+                " " +
+                t("recCloudy");
 
         }
 
         else if (weather === "sunny") {
 
-            reason += " " + t("recSunny");
+            reason +=
+                " " +
+                t("recSunny");
 
         }
 
         else if (weather === "hot") {
 
-            reason += " " + t("recHot");
+            reason +=
+                " " +
+                t("recHot");
 
         }
 
 
         document.getElementById(
             "resultReason"
-        ).textContent = reason;
+        ).textContent =
+            reason;
+
+
+        // =========================================
+        // PERSONALIZED TIPS
+        // =========================================
+
+        const tipsContainer =
+            document.getElementById(
+                "personalizedTips"
+            );
+
+
+        const tipsTitle =
+            document.getElementById(
+                "tipsTitle"
+            );
+
+
+        // =========================================
+        // TRANSLATE TIPS HEADING
+        // =========================================
+
+        if (currentLanguage === "te") {
+
+            tipsTitle.textContent =
+                "🌱 మీ ఎంపిక చేసిన పరిస్థితులకు చిట్కాలు";
+
+        }
+
+        else if (currentLanguage === "hi") {
+
+            tipsTitle.textContent =
+                "🌱 आपकी चुनी हुई परिस्थितियों के लिए सुझाव";
+
+        }
+
+        else {
+
+            tipsTitle.textContent =
+                "🌱 Tips for Your Selected Conditions";
+
+        }
+
+
+        // =========================================
+        // GET SAVED TIPS
+        // =========================================
+
+        let savedTips = [];
+
+
+        try {
+
+            savedTips =
+                JSON.parse(
+                    localStorage.getItem("tips")
+                ) || [];
+
+        }
+
+        catch (error) {
+
+            savedTips = [];
+
+        }
+
+
+        // =========================================
+        // DISPLAY TIPS
+        // =========================================
+
+        if (
+            savedTips.length > 0
+        ) {
+
+
+            tipsContainer.innerHTML =
+                "";
+
+
+            savedTips.forEach(
+                function (tip) {
+
+
+                    const li =
+                        document.createElement(
+                            "li"
+                        );
+
+
+                    li.textContent =
+                        tip;
+
+
+                    tipsContainer.appendChild(
+                        li
+                    );
+
+                }
+            );
+
+        }
+
+        else {
+
+
+            // =====================================
+            // FALLBACK TIPS
+            // =====================================
+
+            if (currentLanguage === "te") {
+
+                tipsContainer.innerHTML = `
+
+                    <li>
+                        నీటిపారుదల ముందు నేలలో తేమను పరిశీలించండి.
+                    </li>
+
+                    <li>
+                        అవసరం లేని నీటిపారుదలను నివారించండి.
+                    </li>
+
+                `;
+
+            }
+
+            else if (currentLanguage === "hi") {
+
+                tipsContainer.innerHTML = `
+
+                    <li>
+                        सिंचाई से पहले मिट्टी की नमी की जांच करें।
+                    </li>
+
+                    <li>
+                        अनावश्यक सिंचाई से बचें।
+                    </li>
+
+                `;
+
+            }
+
+            else {
+
+                tipsContainer.innerHTML = `
+
+                    <li>
+                        Check soil moisture before irrigation.
+                    </li>
+
+                    <li>
+                        Avoid unnecessary watering.
+                    </li>
+
+                `;
+
+            }
+
+        }
 
     }
+
 );
 
 </script>
